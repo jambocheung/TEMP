@@ -1,0 +1,1031 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>秦皇岛西港路河滨水岸项目｜概念方案</title>
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --paper: #ffffff;
+      --ink: #18232a;
+      --muted: #66737a;
+      --line: #d8dddf;
+      --deep: #203743;
+      --deep-2: #2f4652;
+      --blue-grey: #6f858f;
+      --green-grey: #7c8f84;
+      --accent: #bd6a3d;
+      --sand: #d7d0c3;
+      --shadow: 0 22px 60px rgba(24, 35, 42, .10);
+      --radius: 8px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(90deg, rgba(24,35,42,.035) 1px, transparent 1px) 0 0 / 84px 84px,
+        linear-gradient(180deg, rgba(24,35,42,.025) 1px, transparent 1px) 0 0 / 84px 84px,
+        var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    .progress {
+      position: fixed;
+      inset: 0 auto auto 0;
+      z-index: 20;
+      height: 3px;
+      width: 0;
+      background: var(--accent);
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(14px);
+      background: rgba(247, 247, 245, .86);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand {
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--deep);
+      white-space: nowrap;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 12px;
+      color: var(--muted);
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .nav-links a { white-space: nowrap; }
+    .nav-links a:hover { color: var(--accent); }
+
+    .hero {
+      min-height: 96dvh;
+      display: grid;
+      align-items: end;
+      padding: 92px 24px 54px;
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(90deg, rgba(15, 25, 31, .92) 0%, rgba(15, 25, 31, .70) 34%, rgba(15, 25, 31, .22) 68%, rgba(15, 25, 31, .08) 100%),
+        linear-gradient(180deg, rgba(15, 25, 31, .08) 0%, rgba(15, 25, 31, .78) 100%),
+        url("assets/mood-night.png") center / cover no-repeat;
+    }
+
+    .hero-inner {
+      width: min(var(--max), 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 720px);
+      gap: 0;
+      align-items: end;
+    }
+
+    .hero-content {
+      min-width: 0;
+      padding-top: 0;
+    }
+
+    .hero-visual {
+      display: none;
+    }
+
+    .hero-visual img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--accent);
+      font-size: 13px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 620px;
+      margin-bottom: 22px;
+      font-size: clamp(44px, 5.9vw, 82px);
+      line-height: 1.02;
+      letter-spacing: 0;
+      font-weight: 760;
+    }
+
+    .hero h1 {
+      max-width: 740px;
+      color: #fff;
+      text-shadow: 0 2px 18px rgba(0, 0, 0, .26);
+    }
+
+    .hero .eyebrow {
+      color: #e19363;
+      text-shadow: 0 1px 10px rgba(0, 0, 0, .24);
+    }
+
+    .hero-copy {
+      max-width: 590px;
+      color: var(--deep);
+      font-size: clamp(18px, 2vw, 24px);
+      line-height: 1.55;
+      font-weight: 520;
+    }
+
+    .hero .hero-copy {
+      max-width: 660px;
+      color: rgba(255, 255, 255, .88);
+      text-shadow: 0 1px 14px rgba(0, 0, 0, .28);
+    }
+
+    .hero-meta {
+      margin-top: 42px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-top: 1px solid rgba(255,255,255,.28);
+      border-bottom: 1px solid rgba(255,255,255,.28);
+      background: rgba(15, 25, 31, .54);
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-meta div {
+      padding: 16px 18px;
+      border-right: 1px solid rgba(255,255,255,.24);
+      border-bottom: 0;
+      min-height: auto;
+    }
+
+    .hero-meta div:last-child { border-right: 0; }
+    .label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .value {
+      display: block;
+      color: var(--ink);
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .hero .label { color: rgba(255,255,255,.62); }
+    .hero .value { color: #fff; }
+
+    main { overflow: hidden; }
+    section {
+      padding: 86px 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .wrap {
+      width: min(var(--max), 100%);
+      margin: 0 auto;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 34px;
+      align-items: start;
+      margin-bottom: 38px;
+    }
+
+    .section-kicker {
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 760;
+    }
+
+    h2 {
+      max-width: 860px;
+      margin: 0;
+      font-size: clamp(30px, 4vw, 58px);
+      line-height: 1.08;
+      font-weight: 740;
+    }
+
+    .lead {
+      max-width: 790px;
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 1px 0 rgba(24,35,42,.02);
+    }
+
+    .dark-card {
+      background: var(--deep);
+      color: #fff;
+      border-color: var(--deep);
+    }
+
+    .dark-card p, .dark-card li { color: rgba(255,255,255,.78); }
+
+    .card h3 {
+      margin-bottom: 12px;
+      font-size: 22px;
+      line-height: 1.25;
+    }
+
+    .card p, .card li {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1.15em;
+    }
+
+    li + li { margin-top: 8px; }
+
+    .image-panel {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .image-panel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .image-panel.contain img { object-fit: contain; background: #fff; }
+
+    .split {
+      display: grid;
+      grid-template-columns: .92fr 1.08fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .number-card {
+      position: relative;
+      min-height: 210px;
+      padding-top: 54px;
+    }
+
+    .number-card::before {
+      content: attr(data-step);
+      position: absolute;
+      top: 20px;
+      left: 24px;
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      background: var(--deep);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 11px;
+      color: var(--deep);
+      background: rgba(255,255,255,.78);
+      font-size: 13px;
+      line-height: 1.2;
+    }
+
+    .tag.accent {
+      color: #fff;
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .phase {
+      padding: 26px;
+      border-right: 1px solid var(--line);
+    }
+
+    .phase:last-child { border-right: 0; }
+    .phase strong {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--accent);
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .matrix {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .matrix-group {
+      padding: 24px;
+      border-right: 1px solid var(--line);
+      min-height: 260px;
+    }
+
+    .matrix-group:last-child { border-right: 0; }
+    .matrix-group h3 {
+      margin: 0 0 16px;
+      font-size: 20px;
+      color: var(--deep);
+    }
+
+    .mini-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .mini-list span {
+      display: block;
+      padding-left: 12px;
+      border-left: 4px solid var(--accent);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .route {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      align-items: stretch;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .route strong {
+      display: grid;
+      place-items: center;
+      background: var(--deep);
+      color: #fff;
+      font-size: 18px;
+    }
+
+    .route div {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      padding: 20px;
+    }
+
+    .route span {
+      padding: 8px 12px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 14px;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .case-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .case-card img {
+      aspect-ratio: 16 / 6.8;
+      width: 100%;
+      object-fit: cover;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .case-body { padding: 22px; }
+    .case-body h3 { margin: 0 0 8px; font-size: 20px; }
+    .case-body p { margin-bottom: 14px; color: var(--muted); font-size: 14px; }
+
+    .quote {
+      padding: 30px;
+      border-left: 6px solid var(--accent);
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      font-size: clamp(22px, 3vw, 36px);
+      line-height: 1.35;
+      font-weight: 720;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+    }
+
+    .gallery .image-panel { min-height: 210px; }
+    .span-7 { grid-column: span 7; }
+    .span-5 { grid-column: span 5; }
+    .span-4 { grid-column: span 4; }
+    .span-6 { grid-column: span 6; }
+
+    .mood-carousel-shell {
+      position: relative;
+      margin-top: 8px;
+    }
+
+    .mood-carousel {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(76%, 920px);
+      gap: 18px;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      scroll-padding-inline: 4px;
+      padding: 4px 4px 18px;
+      scrollbar-color: var(--accent) rgba(24,35,42,.10);
+    }
+
+    .mood-slide {
+      position: relative;
+      margin: 0;
+      min-height: clamp(420px, 62vw, 680px);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: var(--shadow);
+      scroll-snap-align: start;
+    }
+
+    .mood-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .mood-slide.contain img {
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .mood-caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 18px 22px;
+      color: #fff;
+      background: linear-gradient(180deg, rgba(24,35,42,0), rgba(24,35,42,.78));
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .mood-controls {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      z-index: 2;
+      display: flex;
+      gap: 8px;
+    }
+
+    .mood-controls button {
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(255,255,255,.74);
+      border-radius: 999px;
+      color: #fff;
+      background: rgba(24,35,42,.54);
+      backdrop-filter: blur(10px);
+      font-size: 24px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .mood-controls button:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .season-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .season {
+      padding: 22px;
+      min-height: 176px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .season h3 { margin: 0 0 12px; font-size: 21px; }
+    .season:nth-child(2) { border-top: 5px solid var(--blue-grey); }
+    .season:nth-child(3) { border-top: 5px solid var(--accent); }
+    .season:nth-child(4) { border-top: 5px solid var(--deep); }
+    .season:nth-child(1) { border-top: 5px solid var(--green-grey); }
+
+    .footer {
+      min-height: 70dvh;
+      display: grid;
+      place-items: end start;
+      padding: 72px 24px;
+      color: #fff;
+      background:
+        linear-gradient(90deg, rgba(24,35,42,.92), rgba(24,35,42,.52), rgba(24,35,42,.18)),
+        linear-gradient(180deg, rgba(24,35,42,.08), rgba(24,35,42,.66)),
+        url("assets/mood-entry.png") center / cover no-repeat;
+    }
+
+    .footer .wrap { margin: 0 auto; }
+    .footer h2 { max-width: 780px; color: #fff; }
+    .footer p { max-width: 620px; color: rgba(255,255,255,.82); font-size: 20px; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        min-height: 92dvh;
+        padding-top: 118px;
+        background:
+          linear-gradient(180deg, rgba(15, 25, 31, .48) 0%, rgba(15, 25, 31, .92) 72%),
+          url("assets/mood-night.png") center / cover no-repeat;
+      }
+      .hero-inner, .section-head, .split, .grid-2, .case-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-meta, .grid-3, .grid-4, .timeline, .matrix, .season-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-meta div, .phase, .matrix-group {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .hero-meta div:last-child, .phase:last-child, .matrix-group:last-child { border-bottom: 0; }
+      .hero-meta div { border-bottom-color: rgba(255,255,255,.24); }
+      h1 { font-size: clamp(40px, 12vw, 68px); }
+      .gallery { grid-template-columns: 1fr; }
+      .span-7, .span-5, .span-4, .span-6 { grid-column: auto; }
+      .mood-carousel { grid-auto-columns: 92%; }
+      .mood-slide { min-height: 360px; }
+      .nav-inner { align-items: flex-start; flex-direction: column; }
+      section { padding: 64px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+
+  <nav class="nav" aria-label="页面导航">
+    <div class="nav-inner">
+      <a class="brand" href="#top">JZs｜architects</a>
+      <div class="nav-links">
+        <a href="#judgement">整体判断</a>
+        <a href="#space">空间策略</a>
+        <a href="#business">经营组合</a>
+        <a href="#cases">国际视野</a>
+        <a href="#mood">空间意向</a>
+        <a href="#implementation">落地实施</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <p class="eyebrow">Qinhuangdao Xigang Road Waterfront</p>
+        <h1>河滨水岸 · 生活方式 · 复合岸线</h1>
+        <p class="hero-copy">以滨水商业为核心，复合餐饮、休闲、社交、游艇、市集与公共活动，打造可持续运营、兼具消费吸引力与传播力的水岸生活目的地。</p>
+        <div class="hero-meta">
+          <div><span class="label">项目</span><span class="value">秦皇岛西港路河滨水岸项目</span></div>
+          <div><span class="label">阶段</span><span class="value">概念方案</span></div>
+          <div><span class="label">时间</span><span class="value">2026.06</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="assets/closing-river-port.png" alt="河滨水岸生活方式复合岸线封面视觉">
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="reveal">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">00 / Content</div>
+          <div>
+            <h2>方案围绕四组问题展开：判断、经营、空间、落地。</h2>
+            <p class="lead">原 PDF 的核心内容被重组为网页化叙事，但保留原有顺序和信息层级：先明确项目整体判断，再进入业态结构、消费链条、四季经营、空间策略、国际案例与实施路径。</p>
+          </div>
+        </div>
+        <div class="grid-4">
+          <div class="card"><h3>项目整体判断</h3><p>商业设想、业态结构、消费链条、四季经营。</p></div>
+          <div class="card"><h3>空间策略</h3><p>分段规划、空间特色、停车支撑。</p></div>
+          <div class="card"><h3>国际视野</h3><p>重点案例、参考逻辑、借鉴分析。</p></div>
+          <div class="card"><h3>落地实施</h3><p>分步实施、风险应对、下步深化。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal" id="judgement">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">01 / Project Base</div>
+          <div>
+            <h2>场地沿大汤河东岸展开，面向港口、游艇与城市消费界面。</h2>
+            <p class="lead">项目起点位于西港路与海滨路辅路交叉口，场地沿大汤河东岸向南延伸，面向己码头、海螺岛及渤海方向，目前为绿化带区域。</p>
+          </div>
+        </div>
+        <div class="split">
+          <div class="grid-2">
+            <div class="card dark-card"><h3>滨水岸线</h3><p>形成视觉资源与消费背景。</p></div>
+            <div class="card"><h3>港口文化</h3><p>具备城市记忆与文旅属性。</p></div>
+            <div class="card"><h3>特色资源</h3><p>游艇特色资源有利于形成差异化内容支撑。</p></div>
+            <div class="card"><h3>现场条件</h3><p>现场具备滨水岸线与停车条件。</p></div>
+          </div>
+          <div class="image-panel contain"><img src="assets/site-map.png" alt="项目区位与场地边界示意"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <div class="wrap">
+        <div class="grid-2">
+          <div class="card number-card" data-step="1">
+            <h3>不做普通滨水商业街</h3>
+            <p>不能简单做成沿河餐饮街或夜市。普通模式容易导致招商复杂、人流分散、淡季空置，并产生夜市低端化风险。</p>
+            <div class="tag-row"><span class="tag">招商复杂</span><span class="tag">人流分散</span><span class="tag">淡季空置</span><span class="tag">低端化风险</span></div>
+          </div>
+          <div class="card number-card" data-step="2">
+            <h3>发挥游艇元素的价值</h3>
+            <p>游艇元素的价值由景观价值、身份价值与生活方式价值共同构成，需要转化为咖啡、餐饮、酒吧、市集、钓鱼、私宴和游艇相关活动。</p>
+            <div class="tag-row"><span class="tag accent">景观价值</span><span class="tag accent">身份价值</span><span class="tag accent">生活方式</span></div>
+          </div>
+        </div>
+        <div class="quote" style="margin-top: 24px;">项目目标：河滨水岸商业、游艇生活方式、港口文化消费场景，以及面向四季运营的复合水岸商业项目。</div>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">02 / Risk Control</div>
+          <div>
+            <h2>风险控制是概念方案阶段必须纳入的运营前提。</h2>
+            <p class="lead">方案通过轻量化、分期化、运营化降低风险：提前规划投资、淡季客流、招商品质、水岸安全与停车支撑。</p>
+          </div>
+        </div>
+        <div class="grid-3">
+          <div class="card"><h3>投资</h3><p>以轻量化构筑物与分步实施控制前期投入。</p></div>
+          <div class="card"><h3>淡季客流</h3><p>通过冬季策略、暖岸产品、冬季市集和本地复购内容支撑。</p></div>
+          <div class="card"><h3>招商</h3><p>统一招商逻辑与业态配比，避免低端化和同质化。</p></div>
+          <div class="card"><h3>品质</h3><p>低成本轻建设、高密度内容运营、统一秩序管理。</p></div>
+          <div class="card"><h3>水岸安全</h3><p>配置边界防护、照明、导视与运营安全系统。</p></div>
+          <div class="card"><h3>停车条件</h3><p>西港路东侧区域可承担停车集散与后勤。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal" id="space">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">03 / Spatial Strategy</div>
+          <div>
+            <h2>空间结构采用三段式发展：先做现金流与形象，再延展体验，最后保留弹性。</h2>
+          </div>
+        </div>
+        <div class="split">
+          <div class="timeline">
+            <div class="phase"><strong>Step 1</strong><h3>北段商业</h3><p>做实现金流与形象。</p></div>
+            <div class="phase"><strong>Step 2</strong><h3>中段休闲区延展</h3><p>增加体验与复购内容。</p></div>
+            <div class="phase"><strong>Step 3</strong><h3>南段弹性发展</h3><p>商业、专业服务双路径。</p></div>
+          </div>
+          <div class="image-panel contain"><img src="assets/spatial-plan.png" alt="空间结构总图与分段规划"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal" id="business">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">04 / Business Mix</div>
+          <div>
+            <h2>业态原则围绕现金流、引流、复购和高客单形成经营组合。</h2>
+          </div>
+        </div>
+        <div class="matrix">
+          <div class="matrix-group">
+            <h3>主力现金流业态</h3>
+            <div class="mini-list"><span>餐饮：现金流、核心消费</span><span>咖啡：日常高频、淡季基础客流</span><span>餐酒：夜间消费、二次消费</span></div>
+          </div>
+          <div class="matrix-group">
+            <h3>特色引流业态</h3>
+            <div class="mini-list"><span>市集：热度更新</span><span>文创：内容话题、季节性活动</span><span>游艇相关活动：生活方式</span></div>
+          </div>
+          <div class="matrix-group">
+            <h3>本地复购业态</h3>
+            <div class="mini-list"><span>钓鱼与渔具、渔获加工</span><span>宠物友好：可持续社交</span><span>亲子手作活动：家庭客户粘性</span></div>
+          </div>
+          <div class="matrix-group">
+            <h3>高客单补充业态</h3>
+            <div class="mini-list"><span>私宴：商务、家庭高客单</span><span>团建：中高客单团体客户</span><span>游艇业务界面</span></div>
+          </div>
+        </div>
+        <div class="grid-2" style="margin-top: 24px;">
+          <div class="route"><strong>A</strong><div><span>看船打卡</span><span>船景海鲜</span><span>河岸夜景</span><span>餐酒二次消费</span><span>社交传播</span></div></div>
+          <div class="route"><strong>B</strong><div><span>钓鱼</span><span>鱼获打卡</span><span>鱼获加工</span><span>餐饮消费</span><span>社群复购</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">05 / Four Seasons</div>
+          <div>
+            <h2>四季运营的关键，是把不同季节转化成不同消费理由。</h2>
+          </div>
+        </div>
+        <div class="season-grid">
+          <div class="season"><h3>春季</h3><p>本地周末、市集、品质休闲。</p></div>
+          <div class="season"><h3>秋季</h3><p>宠物、钓鱼、餐酒、内容活动。</p></div>
+          <div class="season"><h3>夏季</h3><p>游客、海鲜、夜经济、船景、夜市。</p></div>
+          <div class="season"><h3>冬季</h3><p>暖岸产品：暖棚、热饮、热食、灯光、暖市集。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal" id="cases">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">06 / Global References</div>
+          <div>
+            <h2>国际案例提供机制借鉴，指导本项目的运营与空间转译。</h2>
+            <p class="lead">案例共同指向一个结论：高质量滨水商业依赖公共动线、在地记忆、水上活动、餐饮夜生活、季节运营与可控轻资产的复合。</p>
+          </div>
+        </div>
+        <div class="case-grid">
+          <article class="case-card">
+            <img src="assets/case-wharf-dc.png" alt="The Wharf DC 案例页">
+            <div class="case-body">
+              <h3>The Wharf DC｜华盛顿码头区</h3>
+              <p>启用时间：一期 2017 年开放，二期 2022 年完成。规模约 9.71 万㎡陆域、20.23 万㎡水域、约 1.6 公里滨水岸线。</p>
+              <p>参考价值：借鉴海鲜消费、河岸夜经济、水上资源联动；避免大体量综合开发和高强度地产模式。</p>
+            </div>
+          </article>
+          <article class="case-card">
+            <img src="assets/case-auckland.png" alt="Wynyard Quarter / Viaduct Harbour Auckland 案例页">
+            <div class="case-body">
+              <h3>Wynyard Quarter / Viaduct Harbour Auckland</h3>
+              <p>新西兰奥克兰约 35-36 公顷滨水更新片区，整合滨水餐饮、公共空间、游艇/帆船码头、文化活动与城市休闲。</p>
+              <p>参考价值：游艇可以成为大众消费背景，进入城市日常消费场景。</p>
+            </div>
+          </article>
+          <article class="case-card">
+            <img src="assets/case-helsinki.png" alt="Allas Sea Pool 与 Loyly Helsinki 案例页">
+            <div class="case-body">
+              <h3>Allas Sea Pool｜Loyly Helsinki</h3>
+              <p>以海水池、全年温水池、桑拿、咖啡、餐厅、Sky Bar 和现场音乐，把寒冷滨水环境转化为全年可消费场景。</p>
+              <p>参考价值：冬季“暖岸产品”和本地日常复购，可转译为暖棚、热饮、热食和冬季灯光。</p>
+            </div>
+          </article>
+          <article class="case-card">
+            <img src="assets/case-reffen.png" alt="Reffen Copenhagen Street Food 案例页">
+            <div class="case-body">
+              <h3>Reffen Copenhagen Street Food</h3>
+              <p>约 12,000 ㎡，包含约 35 个餐饮摊位、10 个酒吧、4 个创意工坊，以低成本轻建设与高密度内容运营形成目的地。</p>
+              <p>参考价值：轻量化商业、摊位秩序和内容更新；避免纯街头食集模式和低端夜市化。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal" id="mood">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">07 / Spatial Mood</div>
+          <div>
+            <h2>轻量化构筑物、外摆、灯光和材料秩序，共同形成可运营的水岸场景。</h2>
+            <p class="lead">轻量化不等于低品质。方案强调低成本轻建设、高密度内容运营、统一秩序管理，并通过入口识别、船景海鲜、餐酒精酿、海港市集、游艇活动和夜景灯光形成第一印象。</p>
+          </div>
+        </div>
+        <div class="mood-carousel-shell">
+          <div class="mood-controls" aria-label="空间意向图片切换">
+            <button type="button" data-carousel-prev aria-label="上一张">‹</button>
+            <button type="button" data-carousel-next aria-label="下一张">›</button>
+          </div>
+          <div class="mood-carousel" data-carousel>
+            <figure class="mood-slide"><img src="assets/mood-entry.png" alt="入口识别与滨水第一形象"><figcaption class="mood-caption">入口识别与第一形象</figcaption></figure>
+            <figure class="mood-slide"><img src="assets/mood-night.png" alt="夜景氛围与水岸消费场景"><figcaption class="mood-caption">夜景氛围与水岸消费场景</figcaption></figure>
+            <figure class="mood-slide"><img src="assets/mood-boardwalk.png" alt="滨水慢行与外摆餐饮"><figcaption class="mood-caption">滨水慢行与外摆餐饮</figcaption></figure>
+            <figure class="mood-slide"><img src="assets/mood-waterfront.png" alt="泊位景观、亲水平台与夜景氛围"><figcaption class="mood-caption">泊位景观与亲水平台</figcaption></figure>
+            <figure class="mood-slide"><img src="assets/light-structure-01.png" alt="轻量化构筑物意向一"><figcaption class="mood-caption">轻量化构筑物</figcaption></figure>
+            <figure class="mood-slide"><img src="assets/light-structure-02.png" alt="轻量化构筑物意向二"><figcaption class="mood-caption">轻量化外摆与休闲节点</figcaption></figure>
+            <figure class="mood-slide"><img src="assets/light-structure-03.png" alt="轻量化构筑物意向三"><figcaption class="mood-caption">模块化构筑物语言</figcaption></figure>
+            <figure class="mood-slide contain"><img src="assets/mood-winter.png" alt="冬季暖岸与火炉、热饮、暖棚意向"><figcaption class="mood-caption">冬季暖岸产品</figcaption></figure>
+            <figure class="mood-slide contain"><img src="assets/mood-harbor.png" alt="港口文化与海港场景意向"><figcaption class="mood-caption">港口文化与海港场景</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">08 / Communication</div>
+          <div>
+            <h2>打卡场景承担项目传播触点的功能。</h2>
+            <p class="lead">可传播场景包括入口标志性构筑物、游艇泊位、水面夜景、船景餐位、鱼获展示、季节市集、冬季暖棚、港口元素装置、亲子与宠物场景。</p>
+          </div>
+        </div>
+        <div class="mood-carousel-shell">
+          <div class="mood-controls" aria-label="传播与导视图片切换">
+            <button type="button" data-carousel-prev aria-label="上一张">‹</button>
+            <button type="button" data-carousel-next aria-label="下一张">›</button>
+          </div>
+          <div class="mood-carousel" data-carousel>
+            <figure class="mood-slide contain"><img src="assets/checkin-scenes.png" alt="多点打卡与可传播场景"><figcaption class="mood-caption">多点打卡 · 可传播场景</figcaption></figure>
+            <figure class="mood-slide contain"><img src="assets/visual-wayfinding.png" alt="统一视觉导视资产"><figcaption class="mood-caption">统一视觉导视 · 视觉资产</figcaption></figure>
+            <figure class="mood-slide contain"><img src="assets/aesthetic-system.png" alt="设计审美策略与色彩基调"><figcaption class="mood-caption">设计审美策略 · 色彩基调</figcaption></figure>
+            <div class="mood-slide dark-card" style="padding: 42px;">
+              <h3 style="font-size: clamp(30px, 4vw, 52px); line-height: 1.08; margin-bottom: 22px;">统一视觉导视</h3>
+              <p style="max-width: 720px; font-size: 19px;">视觉资产覆盖构筑物、门头、招牌、外摆、材料、色彩、灯光与后勤，保证轻量化内容在统一秩序下呈现。</p>
+              <div class="tag-row">
+                <span class="tag">构筑物</span><span class="tag">门头</span><span class="tag">招牌</span><span class="tag">外摆</span><span class="tag">材料</span><span class="tag">色彩</span><span class="tag">灯光</span><span class="tag">后勤</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal" id="implementation">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">09 / Implementation</div>
+          <div>
+            <h2>从概念进入落地，需要同步明确边界、运营、投资与设计深化条件。</h2>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="card dark-card">
+            <h3>项目总控涉及专业</h3>
+            <ul>
+              <li>商业策划</li>
+              <li>整体规划设计</li>
+              <li>构筑物设计</li>
+              <li>景观设计</li>
+              <li>视觉品牌设计</li>
+              <li>落地施工协调</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>下一步需明确条件和目标</h3>
+            <div class="tag-row">
+              <span class="tag">用地边界</span><span class="tag">泊位布置</span><span class="tag">功能设定</span><span class="tag">绿化/用地性质</span><span class="tag">停车范围</span><span class="tag">分段规划实施</span><span class="tag">供电/给排水</span><span class="tag">运营模式</span><span class="tag">品质目标</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline" style="margin-top: 24px;">
+          <div class="phase"><strong>01</strong><h3>进一步现场踏勘</h3><p>核对边界、交通、泊位、现状绿化和基础设施条件。</p></div>
+          <div class="phase"><strong>02</strong><h3>运营 / 商业策划</h3><p>明确投资预期、运营模式、业态落位和动线组织。</p></div>
+          <div class="phase"><strong>03</strong><h3>设计深化 / 落地实施</h3><p>推进整体规划、构筑物、景观、导视与施工协调。</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p class="eyebrow">Harbor · River · Life</p>
+      <h2>把河岸、港口记忆、游艇生活方式和四季经营组织成一条连续消费链。</h2>
+      <p>最终目标是形成可持续运营、兼具消费吸引力与传播力的水岸生活目的地。</p>
+    </div>
+  </footer>
+
+  <script>
+    const progress = document.getElementById('progress');
+    const updateProgress = () => {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const ratio = scrollable > 0 ? window.scrollY / scrollable : 0;
+      progress.style.width = `${Math.min(1, Math.max(0, ratio)) * 100}%`;
+    };
+    updateProgress();
+    window.addEventListener('scroll', updateProgress, { passive: true });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((node) => observer.observe(node));
+
+    document.querySelectorAll('.mood-carousel-shell').forEach((shell) => {
+      const carousel = shell.querySelector('[data-carousel]');
+      const prev = shell.querySelector('[data-carousel-prev]');
+      const next = shell.querySelector('[data-carousel-next]');
+      const slideByOne = (direction) => {
+        if (!carousel) return;
+        const slide = carousel.querySelector('.mood-slide');
+        const gap = 18;
+        const distance = slide ? slide.getBoundingClientRect().width + gap : carousel.clientWidth * 0.82;
+        carousel.scrollBy({ left: direction * distance, behavior: 'smooth' });
+      };
+      prev?.addEventListener('click', () => slideByOne(-1));
+      next?.addEventListener('click', () => slideByOne(1));
+    });
+  </script>
+</body>
+</html>
